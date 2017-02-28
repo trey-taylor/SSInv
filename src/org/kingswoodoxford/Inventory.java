@@ -46,7 +46,7 @@ public class Inventory
 	{
 		for (int i = 0; i < inventoryStock.size(); i++)
 		{
-			System.out.println(inventoryStock.get(i).getName());
+			System.out.println(inventoryStock.get(i).toString());
 		}
 	}
 }

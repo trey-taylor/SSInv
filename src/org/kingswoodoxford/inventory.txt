@@ -1,2 +1,4 @@
-0001,"Shirt",30.29,"Small",38
-0008,"shorts",83.10,"Large",19
+1,"Shirt",30.29,"Small",38
+104,"my black dildo",83.10,"xd",19
+8,"shorts",83.10,"Large",19
+26,"DAD SHOT",82.18,"mini",123

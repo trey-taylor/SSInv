@@ -46,7 +46,21 @@ public class Item implements Comparable<Item>
 	@Override
 	public String toString()
 	{
-		return "(" + this.getID() + ")" + " " + this.getName() + " | $" + this.getPrice() + " | Size: " + this.getSize() + " | " + this.getStock() + " left.";
+		String strID = "";
+		if (this.getID() < 10)
+		{
+			strID = String.format("%04d", this.getID());
+		}
+		else if (this.getID() < 100)
+		{
+			strID = String.format("%04d", this.getID());
+		}
+		else if (this.getID() < 1000)
+		{
+			strID = String.format("%04d", this.getID());
+		}
+		
+		return "(" + strID + ")" + " " + this.getName() + " | $" + this.getPrice() + " | Size: " + this.getSize() + " | " + this.getStock() + " left.";
 
 	}
 
