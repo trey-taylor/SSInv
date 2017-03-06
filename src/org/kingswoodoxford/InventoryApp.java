@@ -17,6 +17,9 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 @SuppressWarnings({"rawtypes", "unchecked", "serial"})
 
@@ -34,7 +37,19 @@ public class InventoryApp {
 	JButton addItemButton = new JButton("Add Item");
 	JLabel debugLabel = new JLabel("DAB");
 	JButton clearButton = new JButton("Clear");
-
+	
+	//Manage Tab
+	private JTextField addItemIDField;
+	private JTextField addItemNameField;
+	private JTextField addItemPriceFIeld;
+	private JTextField addItemSizeField;
+	private JTextField txtInitialStock;
+	private JLabel addItemSizeLabel = new JLabel("");
+	private JLabel addItemStockLabel = new JLabel("");
+	private JLabel addItemPriceLabel = new JLabel("");
+	private JLabel addItemNameLabel = new JLabel("");
+	private JLabel addItemIDLabel = new JLabel("");
+	private final JButton manageAddItem = new JButton("Add Item");
 
 	//Other variables
 	ArrayList<Item> cart = new ArrayList<Item>();
@@ -49,6 +64,7 @@ public class InventoryApp {
 	BufferedReader br = null;
 	String splitData = ",";
 	String line = "";
+	
 
 	/**
 	 * Launch the application.
@@ -90,6 +106,70 @@ public class InventoryApp {
 		Tabs.addTab("Checkout", null, checkoutPanel, null);
 		selectPanel.setLayout(null);
 		managePanel.setLayout(null);
+		
+		addItemIDField = new JTextField();
+		addItemIDField.setHorizontalAlignment(SwingConstants.TRAILING);
+		addItemIDField.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		addItemIDField.setText("ID Number");
+		addItemIDField.setBounds(21, 21, 190, 30);
+		managePanel.add(addItemIDField);
+		addItemIDField.setColumns(10);
+		
+		addItemNameField = new JTextField();
+		addItemNameField.setHorizontalAlignment(SwingConstants.TRAILING);
+		addItemNameField.setText("Item Name");
+		addItemNameField.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		addItemNameField.setColumns(10);
+		addItemNameField.setBounds(21, 61, 190, 30);
+		managePanel.add(addItemNameField);
+		
+		addItemPriceFIeld = new JTextField();
+		addItemPriceFIeld.setText("Price");
+		addItemPriceFIeld.setHorizontalAlignment(SwingConstants.TRAILING);
+		addItemPriceFIeld.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		addItemPriceFIeld.setColumns(10);
+		addItemPriceFIeld.setBounds(21, 101, 190, 30);
+		managePanel.add(addItemPriceFIeld);
+		
+		addItemSizeField = new JTextField();
+		addItemSizeField.setText("Size");
+		addItemSizeField.setHorizontalAlignment(SwingConstants.TRAILING);
+		addItemSizeField.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		addItemSizeField.setColumns(10);
+		addItemSizeField.setBounds(21, 141, 190, 30);
+		managePanel.add(addItemSizeField);
+		
+		txtInitialStock = new JTextField();
+		txtInitialStock.setText("Initial Stock");
+		txtInitialStock.setHorizontalAlignment(SwingConstants.TRAILING);
+		txtInitialStock.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtInitialStock.setColumns(10);
+		txtInitialStock.setBounds(21, 181, 190, 30);
+		managePanel.add(txtInitialStock);
+		
+		addItemIDLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		addItemIDLabel.setBounds(219, 21, 92, 26);
+		managePanel.add(addItemIDLabel);
+		
+		addItemNameLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		addItemNameLabel.setBounds(219, 61, 92, 26);
+		managePanel.add(addItemNameLabel);
+		
+		addItemPriceLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		addItemPriceLabel.setBounds(219, 101, 92, 26);
+		managePanel.add(addItemPriceLabel);
+		addItemSizeLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		addItemSizeLabel.setBounds(219, 141, 92, 26);
+		
+		managePanel.add(addItemSizeLabel);
+		addItemStockLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		addItemStockLabel.setBounds(219, 181, 92, 26);
+		
+		managePanel.add(addItemStockLabel);
+		manageAddItem.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		manageAddItem.setBounds(21, 221, 190, 30);
+		
+		managePanel.add(manageAddItem);
 		checkoutPanel.setLayout(null);
 
 		/*
@@ -143,7 +223,7 @@ public class InventoryApp {
 
 
 		//Select Panel GUI
-		inventoryList.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		inventoryList.setFont(new Font("Courier New", inventoryList.getFont().getStyle(), 18));
 		inventoryList.setModel(new AbstractListModel()
 		{
 			String[] values = jListValues;

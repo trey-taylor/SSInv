@@ -47,6 +47,10 @@ public class Item implements Comparable<Item>
 	public String toString()
 	{
 		String strID = "";
+		String strName = "";
+		String strPrice = "";
+		String strSize = "";
+		String strStock = "";
 		if (this.getID() < 10)
 		{
 			strID = String.format("%04d", this.getID());
@@ -60,7 +64,13 @@ public class Item implements Comparable<Item>
 			strID = String.format("%04d", this.getID());
 		}
 		
-		return "(" + strID + ")" + " " + this.getName() + " | $" + this.getPrice() + " | Size: " + this.getSize() + " | " + this.getStock() + " left.";
+		strName = String.format("%-20s", this.getName());
+		strPrice = String.format("%.2f", this.getPrice());
+		strSize = String.format("%-10s", this.getSize());
+		strStock = String.format("%-3d", this.getStock());
+		
+		
+		return "(" + strID + ")" + " " + strName + " | $" + strPrice + " | Size: " + strSize + " | " + strStock + " left.";
 
 	}
 
